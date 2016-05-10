@@ -7,6 +7,9 @@ written by Adafruit Industries
 #include "DHT.h"
 
 #define MIN_INTERVAL 2000
+#define clockCyclesPerMicrosecond() ( 260L ) //260 is Clock Cycle of LinkIt ONE in MHz
+#define clockCyclesToMicroseconds(a) ( (a) / clockCyclesPerMicrosecond() )
+#define microsecondsToClockCycles(a) ( (a) * clockCyclesPerMicrosecond() )
 
 DHT::DHT(uint8_t pin, uint8_t type, uint8_t count) {
   _pin = pin;
